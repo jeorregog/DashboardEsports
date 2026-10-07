@@ -1,0 +1,4 @@
+.kiro/
+.agents/
+**/.agents/
+*.agent.md
