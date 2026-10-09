@@ -1,9 +1,12 @@
+// external imports
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
+// internal imports
 import { CreatePlayerDto } from './dto/create-player.dto.js';
-import { UpdatePlayerDto } from './dto/update-player.dto.js';
 import { Player } from './entities/player.entity.js';
+import { UpdatePlayerDto } from './dto/update-player.dto.js';
 
 @Injectable()
 export class PlayersService {

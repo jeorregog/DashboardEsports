@@ -1,5 +1,8 @@
+// external imports
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
+// internal imports
 import { Player } from './entities/player.entity.js';
 import { PlayersController } from './players.controller.js';
 import { PlayersService } from './players.service.js';

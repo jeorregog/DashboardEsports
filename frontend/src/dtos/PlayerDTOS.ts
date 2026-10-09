@@ -1,3 +1,4 @@
 import type { PlayerInterface } from '@/interfaces/PlayerInterface.js';
 
 export type CreatePlayerDTO = Omit<PlayerInterface, 'id' | 'createdAt' | 'updatedAt'>;
+export type UpdatePlayerDTO = Partial<CreatePlayerDTO>;

@@ -1,3 +1,4 @@
+// external imports
 import {
   Body,
   Controller,
@@ -7,10 +8,12 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+
+// internal imports
 import { CreatePlayerDto } from './dto/create-player.dto.js';
-import { UpdatePlayerDto } from './dto/update-player.dto.js';
 import { Player } from './entities/player.entity.js';
 import { PlayersService } from './players.service.js';
+import { UpdatePlayerDto } from './dto/update-player.dto.js';
 
 @Controller('players')
 export class PlayersController {

@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import type { PlayerInterface } from '@/interfaces/PlayerInterface.js';
-import { PlayerService } from '@/services/PlayerService.js';
-import { formatUsd } from '@/utils/currencyFormatter.js';
-import { formatShortDate } from '@/utils/dateFormatter.js';
+// external imports
 import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+
+// internal imports
+import CurrencyFormatter from '@/utils/CurrencyFormatter.js';
+import DateFormatter from '@/utils/DateFormatter.js';
+import type { PlayerInterface } from '@/interfaces/PlayerInterface.js';
+import { PlayerService } from '@/services/PlayerService.js';
 
 // --- State ---
 const route = useRoute();
@@ -20,10 +23,22 @@ const initials = computed(() =>
     .toUpperCase(),
 );
 
+const formattedEarnings = computed(() =>
+  player.value ? CurrencyFormatter.formatUsd(player.value.earnings) : '',
+);
+
+const formattedCreatedAt = computed(() =>
+  player.value ? DateFormatter.formatShortDate(player.value.createdAt) : '',
+);
+
+const formattedUpdatedAt = computed(() =>
+  player.value ? DateFormatter.formatShortDate(player.value.updatedAt) : '',
+);
+
 // --- Lifecycle ---
 onMounted(async () => {
   const playerId = Number(route.params.id);
-  player.value = await PlayerService.getPlayerById(playerId);
+  player.value = await PlayerService.getById(playerId);
 });
 </script>
 
@@ -54,7 +69,7 @@ onMounted(async () => {
           <p class="mt-1 text-xs uppercase tracking-wide text-gray-500">Wins</p>
         </div>
         <div class="rounded-lg border border-white/10 bg-neutral-900 p-6 text-center shadow">
-          <p class="text-4xl font-bold text-cyan-400">{{ formatUsd(player.earnings) }}</p>
+          <p class="text-4xl font-bold text-cyan-400">{{ formattedEarnings }}</p>
           <p class="mt-1 text-xs uppercase tracking-wide text-gray-500">Earnings</p>
         </div>
       </div>
@@ -84,15 +99,15 @@ onMounted(async () => {
           </div>
           <div class="flex justify-between py-3">
             <span class="text-gray-400">Earnings</span>
-            <span class="font-medium text-white">{{ formatUsd(player.earnings) }}</span>
+            <span class="font-medium text-white">{{ formattedEarnings }}</span>
           </div>
           <div class="flex justify-between py-3">
             <span class="text-gray-400">Created</span>
-            <span class="font-medium text-white">{{ formatShortDate(player.createdAt) }}</span>
+            <span class="font-medium text-white">{{ formattedCreatedAt }}</span>
           </div>
           <div class="flex justify-between py-3">
             <span class="text-gray-400">Updated</span>
-            <span class="font-medium text-white">{{ formatShortDate(player.updatedAt) }}</span>
+            <span class="font-medium text-white">{{ formattedUpdatedAt }}</span>
           </div>
         </div>
       </div>
