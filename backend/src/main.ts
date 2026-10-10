@@ -1,4 +1,7 @@
+// external imports
 import { NestFactory } from '@nestjs/core';
+
+// internal imports
 import { AppModule } from './app.module.js';
 
 async function bootstrap() {
@@ -12,4 +15,4 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   await app.listen(process.env.PORT ?? 3000);
 }
-bootstrap();
+void bootstrap();
