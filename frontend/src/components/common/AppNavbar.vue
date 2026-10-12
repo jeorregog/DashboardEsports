@@ -1,12 +1,28 @@
 <script setup lang="ts">
-import { Gamepad2, Home, Info, Users } from 'lucide-vue-next'
-import { RouterLink } from 'vue-router'
+// external imports
+import { computed } from 'vue';
+import { Gamepad2, Home, Info, LogIn, LogOut, ShieldCheck, UserPlus, Users } from 'lucide-vue-next';
+import { RouterLink, useRouter } from 'vue-router';
 
-// AppNavbar: pure presentation component for top navigation.
+// internal imports
+import { useAuthStore } from '@/stores/auth.store.js';
+
+// AppNavbar: top navigation. Admin links are only rendered when the session is an administrator.
+const router = useRouter();
+const authStore = useAuthStore();
+
 const navLinkClass =
-  'inline-flex h-9 shrink-0 items-center gap-2 rounded px-3 text-sm font-semibold text-gray-300 transition-colors hover:bg-white/10 hover:text-white'
+  'inline-flex h-9 shrink-0 items-center gap-2 rounded px-3 text-sm font-semibold text-gray-300 transition-colors hover:bg-white/10 hover:text-white';
 const activeNavLinkClass =
-  '!bg-cyan-400 !text-neutral-950 shadow shadow-cyan-500/20 hover:!bg-cyan-300 hover:!text-neutral-950'
+  '!bg-cyan-400 !text-neutral-950 shadow shadow-cyan-500/20 hover:!bg-cyan-300 hover:!text-neutral-950';
+
+// The admin players route is registered by the Player admin work; hide the link until it exists.
+const hasAdminPlayersRoute = computed(() => router.hasRoute('admin.players'));
+
+async function handleLogout() {
+  authStore.logout();
+  await router.push({ name: 'login' });
+}
 </script>
 
 <template>
@@ -20,18 +36,53 @@ const activeNavLinkClass =
       </RouterLink>
 
       <div class="flex flex-wrap items-center gap-2">
-        <RouterLink to="/" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
-          <Home class="h-4 w-4" />
-          Home
-        </RouterLink>
-        <RouterLink to="/players" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
-          <Users class="h-4 w-4" />
-          Players
-        </RouterLink>
-        <RouterLink to="/about" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
-          <Info class="h-4 w-4" />
-          About
-        </RouterLink>
+        <template v-if="authStore.isAuthenticated">
+          <RouterLink to="/" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
+            <Home class="h-4 w-4" />
+            Home
+          </RouterLink>
+          <RouterLink to="/players" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
+            <Users class="h-4 w-4" />
+            Players
+          </RouterLink>
+          <RouterLink to="/about" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
+            <Info class="h-4 w-4" />
+            About
+          </RouterLink>
+
+          <template v-if="authStore.isAdmin">
+            <RouterLink to="/admin/users" :class="navLinkClass" :active-class="activeNavLinkClass">
+              <ShieldCheck class="h-4 w-4" />
+              Admin Users
+            </RouterLink>
+            <RouterLink
+              v-if="hasAdminPlayersRoute"
+              to="/admin/players"
+              :class="navLinkClass"
+              :active-class="activeNavLinkClass"
+            >
+              <ShieldCheck class="h-4 w-4" />
+              Admin Players
+            </RouterLink>
+          </template>
+
+          <span class="px-2 text-sm text-gray-400">{{ authStore.currentUser?.username }}</span>
+          <button type="button" :class="navLinkClass" @click="handleLogout">
+            <LogOut class="h-4 w-4" />
+            Logout
+          </button>
+        </template>
+
+        <template v-else>
+          <RouterLink to="/login" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
+            <LogIn class="h-4 w-4" />
+            Login
+          </RouterLink>
+          <RouterLink to="/register" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
+            <UserPlus class="h-4 w-4" />
+            Register
+          </RouterLink>
+        </template>
       </div>
     </div>
   </nav>
