@@ -5,8 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 // internal imports
 import { AuthModule } from './auth/auth.module.js';
 import { HomeModule } from './home/home.module.js';
+import { MatchesModule } from './matches/matches.module.js';
 import { PlayersModule } from './players/players.module.js';
 import { SeedModule } from './seed/seed.module.js';
+import { TeamsModule } from './teams/teams.module.js';
 import { UsersModule } from './users/users.module.js';
 
 @Module({
@@ -19,8 +21,10 @@ import { UsersModule } from './users/users.module.js';
     }),
     AuthModule,
     HomeModule,
+    MatchesModule,
     PlayersModule,
     SeedModule,
+    TeamsModule,
     UsersModule,
   ],
 })
