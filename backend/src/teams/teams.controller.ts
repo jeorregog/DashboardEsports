@@ -12,10 +12,11 @@ import {
 
 // internal imports
 import { AdminGuard } from '../auth/guards/admin.guard.js';
-import { CreateTeamDto, UpdateTeamDto } from './dto/TeamDTOS.js';
+import { CreateTeamDto } from './dto/create-team.dto.js';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
 import { Team } from './entities/team.entity.js';
 import { TeamsService } from './teams.service.js';
+import { UpdateTeamDto } from './dto/update-team.dto.js';
 
 @Controller('teams')
 export class TeamsController {

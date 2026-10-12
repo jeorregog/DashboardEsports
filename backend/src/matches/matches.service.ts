@@ -4,9 +4,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 // internal imports
-import { CreateMatchDto, UpdateMatchDto } from './dto/MatchDTOS.js';
+import { CreateMatchDto } from './dto/create-match.dto.js';
 import { Match } from './entities/match.entity.js';
 import { Team } from '../teams/entities/team.entity.js';
+import { UpdateMatchDto } from './dto/update-match.dto.js';
 
 @Injectable()
 export class MatchesService {

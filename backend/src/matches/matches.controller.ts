@@ -12,10 +12,11 @@ import {
 
 // internal imports
 import { AdminGuard } from '../auth/guards/admin.guard.js';
-import { CreateMatchDto, UpdateMatchDto } from './dto/MatchDTOS.js';
+import { CreateMatchDto } from './dto/create-match.dto.js';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
 import { Match } from './entities/match.entity.js';
 import { MatchesService } from './matches.service.js';
+import { UpdateMatchDto } from './dto/update-match.dto.js';
 
 @Controller('matches')
 export class MatchesController {
