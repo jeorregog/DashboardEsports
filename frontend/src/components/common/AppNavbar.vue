@@ -1,7 +1,18 @@
 <script setup lang="ts">
 // external imports
 import { computed } from 'vue';
-import { Gamepad2, Home, Info, LogIn, LogOut, ShieldCheck, UserPlus, Users } from 'lucide-vue-next';
+import {
+  Gamepad2,
+  Home,
+  Info,
+  LogIn,
+  LogOut,
+  ShieldCheck,
+  Swords,
+  Trophy,
+  UserPlus,
+  Users,
+} from 'lucide-vue-next';
 import { RouterLink, useRouter } from 'vue-router';
 
 // internal imports
@@ -44,6 +55,14 @@ async function handleLogout() {
           <RouterLink to="/players" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
             <Users class="h-4 w-4" />
             Players
+          </RouterLink>
+          <RouterLink to="/teams" :class="navLinkClass" :active-class="activeNavLinkClass">
+            <Trophy class="h-4 w-4" />
+            Teams
+          </RouterLink>
+          <RouterLink to="/matches" :class="navLinkClass" :active-class="activeNavLinkClass">
+            <Swords class="h-4 w-4" />
+            Matches
           </RouterLink>
           <RouterLink to="/about" :class="navLinkClass" :exact-active-class="activeNavLinkClass">
             <Info class="h-4 w-4" />
