@@ -9,9 +9,11 @@ defineProps<{
   columns: ColumnDefinition<T>[]
   data: T[]
   showActions?: boolean
+  showView?: boolean
 }>()
 
 defineEmits<{
+  (e: 'view', item: T): void
   (e: 'edit', item: T): void
   (e: 'delete', item: T): void
 }>()
@@ -30,7 +32,7 @@ defineEmits<{
             {{ col.label }}
           </th>
           <th
-            v-if="showActions"
+            v-if="showActions || showView"
             class="px-4 py-2 text-right text-sm font-semibold text-gray-700 border-b"
           >
             Actions
@@ -40,7 +42,7 @@ defineEmits<{
       <tbody>
         <tr v-if="data.length === 0">
           <td
-            :colspan="showActions ? columns.length + 1 : columns.length"
+            :colspan="showActions || showView ? columns.length + 1 : columns.length"
             class="px-4 py-4 text-center text-gray-500"
           >
             No data available.
@@ -54,13 +56,22 @@ defineEmits<{
           >
             {{ item[col.key] }}
           </td>
-          <td v-if="showActions" class="px-4 py-2 text-right border-b">
-            <button class="text-blue-600 hover:text-blue-800 mr-2" @click="$emit('edit', item)">
-              Edit
+          <td v-if="showActions || showView" class="px-4 py-2 text-right border-b">
+            <button
+              v-if="showView"
+              class="text-gray-600 hover:text-gray-900 mr-2"
+              @click="$emit('view', item)"
+            >
+              View
             </button>
-            <button class="text-red-600 hover:text-red-800" @click="$emit('delete', item)">
-              Delete
-            </button>
+            <template v-if="showActions">
+              <button class="text-blue-600 hover:text-blue-800 mr-2" @click="$emit('edit', item)">
+                Edit
+              </button>
+              <button class="text-red-600 hover:text-red-800" @click="$emit('delete', item)">
+                Delete
+              </button>
+            </template>
           </td>
         </tr>
       </tbody>

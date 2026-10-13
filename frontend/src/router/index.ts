@@ -3,13 +3,20 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // internal imports
 import AboutView from '@/views/AboutView.vue';
+import AdminPlayersView from '@/views/AdminPlayersView.vue';
 import AdminUsersView from '@/views/AdminUsersView.vue';
 import HomeView from '@/views/HomeView.vue';
 import LoginView from '@/views/LoginView.vue';
+import MatchesFormView from '@/views/MatchesFormView.vue';
+import MatchesIndexView from '@/views/MatchesIndexView.vue';
+import MatchesShowView from '@/views/MatchesShowView.vue';
 import PlayersFormView from '@/views/PlayersFormView.vue';
 import PlayersIndexView from '@/views/PlayersIndexView.vue';
 import PlayersShowView from '@/views/PlayersShowView.vue';
 import RegisterView from '@/views/RegisterView.vue';
+import TeamsFormView from '@/views/TeamsFormView.vue';
+import TeamsIndexView from '@/views/TeamsIndexView.vue';
+import TeamsShowView from '@/views/TeamsShowView.vue';
 import { useAuthStore } from '@/stores/auth.store.js';
 import UsersFormView from '@/views/UsersFormView.vue';
 
@@ -72,7 +79,62 @@ const router = createRouter({
       meta: { title: 'Player', requiresAuth: true },
     },
 
+    {
+      path: '/teams',
+      name: 'teams',
+      component: TeamsIndexView,
+      meta: { title: 'Teams', requiresAuth: true },
+    },
+    {
+      path: '/teams/create',
+      name: 'teams.create',
+      component: TeamsFormView,
+      meta: { title: 'Create Team', requiresAuth: true, requiresAdmin: true },
+    },
+    {
+      path: '/teams/:id/edit',
+      name: 'teams.edit',
+      component: TeamsFormView,
+      meta: { title: 'Edit Team', requiresAuth: true, requiresAdmin: true },
+    },
+    {
+      path: '/teams/:id',
+      name: 'team',
+      component: TeamsShowView,
+      meta: { title: 'Team', requiresAuth: true },
+    },
+    {
+      path: '/matches',
+      name: 'matches',
+      component: MatchesIndexView,
+      meta: { title: 'Matches', requiresAuth: true },
+    },
+    {
+      path: '/matches/create',
+      name: 'matches.create',
+      component: MatchesFormView,
+      meta: { title: 'Create Match', requiresAuth: true, requiresAdmin: true },
+    },
+    {
+      path: '/matches/:id/edit',
+      name: 'matches.edit',
+      component: MatchesFormView,
+      meta: { title: 'Edit Match', requiresAuth: true, requiresAdmin: true },
+    },
+    {
+      path: '/matches/:id',
+      name: 'match',
+      component: MatchesShowView,
+      meta: { title: 'Match', requiresAuth: true },
+    },
+
     // Admin routes
+    {
+      path: '/admin/players',
+      name: 'admin.players',
+      component: AdminPlayersView,
+      meta: { title: 'Admin Players', requiresAuth: true, requiresAdmin: true },
+    },
     {
       path: '/admin/users',
       name: 'admin.users',
