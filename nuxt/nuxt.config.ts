@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { articles } from './app/data/articles'
 import { books } from './app/data/books'
 
 export default defineNuxtConfig({
@@ -7,12 +8,17 @@ export default defineNuxtConfig({
   
   routeRules: {
     '/books/**': { prerender: true },
+    '/blog/**': { prerender: true },
     '/': { ssr: true },
     '/about': { ssr: false },
   },
   nitro: {
     prerender: {
-      routes: books.map(b => `/books/${b.id}`)
+      routes: [
+        ...books.map(b => `/books/${b.id}`),
+        '/blog',
+        ...articles.map(a => `/blog/${a.slug}`),
+      ],
     }
   },
 
