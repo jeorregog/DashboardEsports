@@ -1,18 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { books } from './app/data/books'
+import { articles } from './app/data/articles'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   
   routeRules: {
-    '/books/**': { prerender: true },
+    '/blog/**': { prerender: true },
     '/': { ssr: true },
     '/about': { ssr: false },
   },
   nitro: {
     prerender: {
-      routes: books.map(b => `/books/${b.id}`)
+      routes: [
+        '/blog',
+        ...articles.map(a => `/blog/${a.slug}`),
+      ],
     }
   },
 
