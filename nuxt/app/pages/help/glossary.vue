@@ -2,32 +2,32 @@
   <section>
     <p class="mb-3">
       <NuxtLink class="text-decoration-none" to="/help">
-        Volver al centro de ayuda
+        Back to Help Center
       </NuxtLink>
     </p>
 
-    <h1 class="h2 mb-3">Glosario de Esports</h1>
+    <h1 class="h2 mb-3">Esports Glossary</h1>
 
     <dl>
-      <dt>Plantilla de jugadores</dt>
+      <dt>Roster</dt>
       <dd>
-        Grupo de jugadores que forman parte de un equipo.
+        The group of players who belong to a team.
       </dd>
 
-      <dt>Rol</dt>
+      <dt>Role</dt>
       <dd>
-        Posición o responsabilidad que tiene un jugador
-        dentro de su equipo.
+        The position or responsibility a player has
+        within a team.
       </dd>
 
-      <dt>Partida</dt>
+      <dt>Match</dt>
       <dd>
-        Encuentro competitivo entre dos equipos.
+        A competitive game between two teams.
       </dd>
 
-      <dt>Seguidores</dt>
+      <dt>Followers</dt>
       <dd>
-        Cantidad de personas que siguen a un equipo.
+        The number of people who follow a team.
       </dd>
     </dl>
   </section>

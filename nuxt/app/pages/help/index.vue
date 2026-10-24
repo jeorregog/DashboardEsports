@@ -1,19 +1,19 @@
 <template>
   <section>
-    <h1 class="h2 mb-3">Centro de ayuda</h1>
+    <h1 class="h2 mb-3">Help Center</h1>
     <p>
-      Conoce más sobre el dashboard de Esports
-      y los términos utilizados en la plataforma.
+      Learn more about the esports dashboard
+      and the terminology used throughout the platform.
     </p>
     <ul class="list-group">
       <li class="list-group-item">
         <NuxtLink class="text-decoration-none" to="/help/faq">
-          Preguntas frecuentes
+          Frequently Asked Questions
         </NuxtLink>
       </li>
       <li class="list-group-item">
         <NuxtLink class="text-decoration-none" to="/help/glossary">
-          Glosario de Esports
+          Esports Glossary
         </NuxtLink>
       </li>
     </ul>

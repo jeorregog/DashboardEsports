@@ -2,28 +2,28 @@
   <section>
     <p class="mb-3">
       <NuxtLink class="text-decoration-none" to="/help">
-        Volver al centro de ayuda
+        Back to Help Center
       </NuxtLink>
     </p>
 
-    <h1 class="h2 mb-3">Preguntas frecuentes</h1>
+    <h1 class="h2 mb-3">Frequently Asked Questions</h1>
 
-    <h2 class="h5">¿Qué es el dashboard de Esports?</h2>
+    <h2 class="h5">What is the esports dashboard?</h2>
     <p>
-      Es una plataforma que organiza información sobre jugadores,
-      equipos y partidas competitivas.
+      It is a platform that organizes information about players,
+      teams, and competitive matches.
     </p>
 
-    <h2 class="h5">¿Qué información contiene un equipo?</h2>
+    <h2 class="h5">What information does a team contain?</h2>
     <p>
-      Cada equipo cuenta con un nombre, país, cantidad de seguidores
-      y una lista de jugadores que lo conforman.
+      Each team includes a name, country, follower count,
+      and a list of its players.
     </p>
 
-    <h2 class="h5">¿Qué información contiene una partida?</h2>
+    <h2 class="h5">What information does a match contain?</h2>
     <p>
-      Cada partida registra el videojuego, la fecha, los dos equipos
-      participantes y el equipo ganador.
+      Each match records the game, date, two participating teams,
+      and the winning team.
     </p>
   </section>
 </template>
