@@ -14,7 +14,7 @@ useHead({ title: () => article.value?.title })
 <template>
   <article v-if="article">
     <p class="mb-1">
-      <NuxtLink class="text-decoration-none small" to="/blog">← Todos los artículos</NuxtLink>
+      <NuxtLink class="text-decoration-none small" to="/blog">← All articles</NuxtLink>
     </p>
     <h1 class="h2">{{ article.title }}</h1>
     <p class="lead mb-3">{{ article.author }} · {{ formatDate(article.publishedAt) }}</p>

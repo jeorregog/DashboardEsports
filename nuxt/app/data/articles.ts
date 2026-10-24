@@ -9,42 +9,42 @@ export type Article = {
 
 export const articles: Article[] = [
   {
-    slug: 'metricas-clave-dashboard-esports',
-    title: 'Las métricas clave de un dashboard de esports',
-    author: 'Equipo DashboardEsports',
+    slug: 'key-metrics-esports-dashboard',
+    title: 'The key metrics of an esports dashboard',
+    author: 'DashboardEsports Team',
     publishedAt: '2026-09-02',
     summary:
-      'Qué datos de jugadores, equipos y partidas vale la pena mostrar para entender el rendimiento competitivo.',
+      'Which player, team and match data are worth showing to understand competitive performance.',
     content: [
-      'Un dashboard de esports no sirve de mucho si solo acumula números. Lo importante es elegir métricas que respondan preguntas concretas: ¿quién está rindiendo mejor?, ¿qué equipo crece más?, ¿cómo le va a cada organización en sus enfrentamientos?',
-      'A nivel de jugador, las victorias, el rol que desempeña y las ganancias acumuladas dan una primera imagen de su trayectoria. A nivel de equipo, los seguidores y el país de origen ayudan a medir alcance e influencia.',
-      'A nivel de partida, el historial de enfrentamientos entre equipos permite ver rivalidades y tendencias. Con estas tres capas, el dashboard cuenta una historia completa en lugar de mostrar datos aislados.',
+      'An esports dashboard is not much use if it only piles up numbers. What matters is choosing metrics that answer concrete questions: who is performing best? Which team is growing the most? How is each organization doing in its matchups?',
+      'At the player level, wins, role and accumulated earnings give a first picture of a career. At the team level, followers and country of origin help measure reach and influence.',
+      'At the match level, the history of matchups between teams reveals rivalries and trends. With these three layers, the dashboard tells a complete story instead of showing isolated data.',
     ],
   },
   {
-    slug: 'como-se-organiza-un-equipo-profesional',
-    title: 'Cómo se organiza un equipo profesional de esports',
-    author: 'Equipo DashboardEsports',
+    slug: 'how-a-professional-esports-team-is-organized',
+    title: 'How a professional esports team is organized',
+    author: 'DashboardEsports Team',
     publishedAt: '2026-09-16',
     summary:
-      'Una mirada a la estructura de una organización: jugadores, roles y la relación con sus partidas oficiales.',
+      'A look at the structure of an organization: players, roles and their relationship with official matches.',
     content: [
-      'Detrás de cada equipo profesional hay una estructura clara. Una organización agrupa a varios jugadores, y cada jugador cumple un rol específico dentro de la plantilla, como líder de línea, apoyo o selvático.',
-      'Esa relación entre equipos y jugadores es la base de un buen modelo de datos: un equipo tiene muchos jugadores, y un jugador pertenece a un solo equipo a la vez. Representarla bien evita inconsistencias al mostrar información.',
-      'Las partidas, por su parte, conectan a dos equipos en un mismo evento. Entender esta organización ayuda a diseñar pantallas más útiles, donde navegar de un equipo a sus jugadores o a sus partidas sea natural.',
+      'Behind every professional team there is a clear structure. An organization groups several players, and each player fills a specific role within the roster, such as top laner, support or jungler.',
+      'This relationship between teams and players is the basis of a good data model: a team has many players, and a player belongs to only one team at a time. Representing it well avoids inconsistencies when displaying information.',
+      'Matches, in turn, connect two teams in the same event. Understanding this organization helps design more useful screens, where navigating from a team to its players or its matches feels natural.',
     ],
   },
   {
-    slug: 'visualizar-datos-para-decidir-mejor',
-    title: 'Visualizar datos para decidir mejor',
-    author: 'Equipo DashboardEsports',
+    slug: 'visualizing-data-to-make-better-decisions',
+    title: 'Visualizing data to make better decisions',
+    author: 'DashboardEsports Team',
     publishedAt: '2026-10-01',
     summary:
-      'Por qué las gráficas y las tablas filtrables ayudan a analistas y entrenadores a tomar decisiones.',
+      'Why charts and filterable tables help analysts and coaches make decisions.',
     content: [
-      'Los analistas y entrenadores rara vez tienen tiempo para revisar hojas de cálculo enormes. Una gráfica bien elegida permite comparar equipos en segundos y detectar patrones que una tabla esconde.',
-      'Las tablas filtrables complementan las gráficas: permiten acotar la información por país, rol o equipo y llegar al detalle que se necesita en cada momento.',
-      'La clave está en combinar ambas herramientas con una interfaz sencilla. Un dashboard útil no muestra todo a la vez, sino lo necesario para pasar del dato a la decisión.',
+      'Analysts and coaches rarely have time to go through huge spreadsheets. A well-chosen chart makes it possible to compare teams in seconds and spot patterns that a table hides.',
+      'Filterable tables complement charts: they let you narrow the information by country, role or team and reach the detail you need at any given moment.',
+      'The key is to combine both tools in a simple interface. A useful dashboard does not show everything at once, only what is needed to go from data to decision.',
     ],
   },
 ]
