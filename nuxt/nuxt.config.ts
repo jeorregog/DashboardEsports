@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     '/blog/**': { prerender: true },
     '/': { ssr: true },
     '/about': { ssr: false },
+    '/help': { ssr: false },
+    '/help/**': { ssr: false },
   },
   nitro: {
     prerender: {
