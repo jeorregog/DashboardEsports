@@ -1,7 +1,8 @@
-
 <script setup lang="ts">
 // Teams are requested to the Nuxt server layer (/server/api/teams) during SSR
 const { data: teams } = await useFetch('/api/teams')
+
+useHead({ title: 'Equipos' })
 </script>
 
 <template>

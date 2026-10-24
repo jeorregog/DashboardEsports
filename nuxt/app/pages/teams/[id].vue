@@ -13,6 +13,8 @@ if (error.value) {
     fatal: true,
   })
 }
+
+useHead({ title: () => team.value?.name })
 </script>
 
 <template>
