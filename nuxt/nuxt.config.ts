@@ -5,8 +5,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   
-  routeRules: {
+    routeRules: {
     '/blog/**': { prerender: true },
+    '/teams': { ssr: true },
+    '/teams/**': { ssr: true },
     '/': { ssr: true },
     '/about': { ssr: false },
     '/help': { ssr: false },
