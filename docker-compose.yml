@@ -24,5 +24,12 @@ services:
       - backend
     restart: unless-stopped
 
+  nuxt:
+    build:
+      context: ./nuxt
+    ports:
+      - "3001:3000"
+    restart: unless-stopped
+
 volumes:
   backend-data:
